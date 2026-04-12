@@ -63,7 +63,7 @@ loginForm.addEventListener('submit', (event) => {
   const formData = new FormData(loginForm);
   const name = String(formData.get('name') || '').trim();
   const email = String(formData.get('email') || '').trim();
-  const password = String(formData.get('password') || '');
+  const password = String(formData.get('password') || '').trim();
   const hasValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   if (!name || !email || !password) {
@@ -82,6 +82,7 @@ loginForm.addEventListener('submit', (event) => {
   loginMessage.textContent = 'Login successful.';
   loginSection.classList.add('hidden');
   appSection.classList.remove('hidden');
+  appSection.setAttribute('aria-hidden', 'false');
   welcomeMessage.textContent = `Logged in as ${name} (${email})`;
 });
 
