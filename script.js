@@ -20,6 +20,7 @@ const state = {
   lastQuery: '',
   lastCode: ''
 };
+const MAX_DIAGRAM_TEXT_LENGTH = 26;
 
 const crop = (value, length) => {
   if (!value) {
@@ -39,8 +40,8 @@ const refreshDiagram = () => {
   const code = state.lastCode.trim();
   const timestamp = new Date().toLocaleString();
 
-  queryNode.textContent = crop(query, 26);
-  codeNode.textContent = crop(code, 26);
+  queryNode.textContent = crop(query, MAX_DIAGRAM_TEXT_LENGTH);
+  codeNode.textContent = crop(code, MAX_DIAGRAM_TEXT_LENGTH);
 
   if (!query && !code) {
     analysisNode.textContent = 'idle';
@@ -52,7 +53,7 @@ const refreshDiagram = () => {
   const queryWords = query ? query.split(/\s+/).filter(Boolean).length : 0;
   const codeLines = code ? code.split(/\r?\n/).length : 0;
 
-  analysisNode.textContent = `q:${queryWords} w, c:${codeLines} l`;
+  analysisNode.textContent = `${queryWords} words, ${codeLines} lines`;
   statusNode.textContent = 'generated';
   refreshStatus.textContent = `Refresh generated at ${timestamp} for query "${query || '(none)'}" with ${codeLines} code line(s).`;
 };
