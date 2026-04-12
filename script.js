@@ -20,7 +20,7 @@ const state = {
   lastQuery: '',
   lastCode: ''
 };
-const MAX_DIAGRAM_TEXT_LENGTH = 26;
+const MAX_DIAGRAM_NODE_PREVIEW_CHARS = 26;
 
 const crop = (value, length) => {
   if (!value) {
@@ -40,8 +40,8 @@ const refreshDiagram = () => {
   const code = state.lastCode.trim();
   const timestamp = new Date().toLocaleString();
 
-  queryNode.textContent = crop(query, MAX_DIAGRAM_TEXT_LENGTH);
-  codeNode.textContent = crop(code, MAX_DIAGRAM_TEXT_LENGTH);
+  queryNode.textContent = crop(query, MAX_DIAGRAM_NODE_PREVIEW_CHARS);
+  codeNode.textContent = crop(code, MAX_DIAGRAM_NODE_PREVIEW_CHARS);
 
   if (!query && !code) {
     analysisNode.textContent = 'idle';
@@ -64,9 +64,18 @@ loginForm.addEventListener('submit', (event) => {
   const name = String(formData.get('name') || '').trim();
   const email = String(formData.get('email') || '').trim();
   const password = String(formData.get('password') || '');
+  const hasValidEmail = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
 
   if (!name || !email || !password) {
     loginMessage.textContent = 'Please provide name, email, and password.';
+    return;
+  }
+  if (!hasValidEmail) {
+    loginMessage.textContent = 'Please provide a valid email address.';
+    return;
+  }
+  if (password.length < 6) {
+    loginMessage.textContent = 'Password must be at least 6 characters.';
     return;
   }
 
