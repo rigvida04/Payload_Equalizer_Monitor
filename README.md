@@ -1,2 +1,14 @@
 # Payload_Equalizer_Monitor
-https://v0.app/chat/localhost-8080-oWq7NojCXLv?ref=LZS5J5
+
+Simple browser app for payload equalizer monitoring with:
+- Login page (name/email/password)
+- Unlimited query and code submissions
+- Query-driven data flow diagram refresh status generation
+
+## Run locally
+
+```bash
+python3 -m http.server 8080
+```
+
+Open `http://127.0.0.1:8080/index.html`.
