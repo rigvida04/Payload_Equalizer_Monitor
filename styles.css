@@ -99,6 +99,12 @@ button:hover {
   font-size: 0.95rem;
 }
 
+.hint {
+  margin-top: 0;
+  color: #5b6785;
+  font-size: 0.9rem;
+}
+
 .log {
   margin: 0;
   padding-left: 1rem;

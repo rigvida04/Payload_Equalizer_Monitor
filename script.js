@@ -25,7 +25,7 @@ const crop = (value, length) => {
   if (!value) {
     return '(waiting)';
   }
-  return value.length > length ? `${value.slice(0, length - 1)}…` : value;
+  return value.length > length ? `${value.slice(0, length)}…` : value;
 };
 
 const addLog = (message) => {
@@ -72,7 +72,6 @@ loginForm.addEventListener('submit', (event) => {
   loginMessage.textContent = 'Login successful.';
   loginSection.classList.add('hidden');
   appSection.classList.remove('hidden');
-  appSection.setAttribute('aria-hidden', 'false');
   welcomeMessage.textContent = `Logged in as ${name} (${email})`;
 });
 
