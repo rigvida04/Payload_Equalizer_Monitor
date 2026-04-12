@@ -64,7 +64,7 @@ loginForm.addEventListener('submit', (event) => {
   const name = String(formData.get('name') || '').trim();
   const email = String(formData.get('email') || '').trim();
   const password = String(formData.get('password') || '');
-  const hasValidEmail = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
+  const hasValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   if (!name || !email || !password) {
     loginMessage.textContent = 'Please provide name, email, and password.';
