@@ -23,7 +23,7 @@ const state = {
 };
 const MAX_DIAGRAM_NODE_CHARS = 26;
 
-const crop = (value, length) => {
+const truncateText = (value, length) => {
   if (!value) {
     return '(waiting)';
   }
@@ -41,8 +41,8 @@ const refreshDiagram = () => {
   const code = state.lastCode.trim();
   const timestamp = new Date().toLocaleString();
 
-  queryNode.textContent = crop(query, MAX_DIAGRAM_NODE_CHARS);
-  codeNode.textContent = crop(code, MAX_DIAGRAM_NODE_CHARS);
+  queryNode.textContent = truncateText(query, MAX_DIAGRAM_NODE_CHARS);
+  codeNode.textContent = truncateText(code, MAX_DIAGRAM_NODE_CHARS);
 
   if (!query && !code) {
     analysisNode.textContent = 'idle';
