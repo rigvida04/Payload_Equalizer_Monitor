@@ -1,0 +1,113 @@
+:root {
+  color-scheme: light;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f3f6fb;
+  color: #202938;
+}
+
+.page {
+  max-width: 920px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 1.25rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.stack {
+  display: grid;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #c7d2e4;
+}
+
+button {
+  width: fit-content;
+  background: #0d6efd;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0b5ed7;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.diagram {
+  width: 100%;
+  height: auto;
+  background: #f8faff;
+  border: 1px solid #e3eaf8;
+  border-radius: 10px;
+}
+
+.node {
+  fill: #eaf1ff;
+  stroke: #acc2ff;
+}
+
+.node-title {
+  font-size: 14px;
+  font-weight: 700;
+  fill: #1d2e57;
+}
+
+.node-text {
+  font-size: 11px;
+  fill: #3f4f77;
+}
+
+.edge {
+  stroke: #7289c9;
+  stroke-width: 2;
+  marker-end: url(#arrow);
+}
+
+.message {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.hint {
+  margin-top: 0;
+  color: #5b6785;
+  font-size: 0.9rem;
+}
+
+.log {
+  margin: 0;
+  padding-left: 1rem;
+  max-height: 220px;
+  overflow: auto;
+}
