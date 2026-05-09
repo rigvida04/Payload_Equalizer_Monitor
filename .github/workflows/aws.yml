@@ -31,20 +31,19 @@ on:
     branches: [ "main" ]
 
 env:
-  AWS_REGION: MY_AWS_REGION                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: MY_ECR_REPOSITORY           # set this to your Amazon ECR repository name
-  ECS_SERVICE: MY_ECS_SERVICE                 # set this to your Amazon ECS service name
-  ECS_CLUSTER: MY_ECS_CLUSTER                 # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: MY_ECS_TASK_DEFINITION # set this to the path to your Amazon ECS task definition
-                                               # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: MY_CONTAINER_NAME           # set this to the name of the container in the
-                                               # containerDefinitions section of your task definition
+  AWS_REGION: ${{ vars.AWS_REGION }}                   # set this repository variable, e.g. us-west-1
+  ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY }}           # set this repository variable
+  ECS_SERVICE: ${{ vars.ECS_SERVICE }}                 # set this repository variable
+  ECS_CLUSTER: ${{ vars.ECS_CLUSTER }}                 # set this repository variable
+  ECS_TASK_DEFINITION: ${{ vars.ECS_TASK_DEFINITION }} # set this repository variable (path to task definition file)
+  CONTAINER_NAME: ${{ vars.CONTAINER_NAME }}           # set this repository variable
 
 permissions:
   contents: read
 
 jobs:
   deploy:
+    if: ${{ secrets.AWS_ACCESS_KEY_ID != '' && secrets.AWS_SECRET_ACCESS_KEY != '' && vars.AWS_REGION != '' && vars.ECR_REPOSITORY != '' && vars.ECS_SERVICE != '' && vars.ECS_CLUSTER != '' && vars.ECS_TASK_DEFINITION != '' && vars.CONTAINER_NAME != '' }}
     name: Deploy
     runs-on: ubuntu-latest
     environment: production
