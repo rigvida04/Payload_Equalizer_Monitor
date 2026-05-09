@@ -81,6 +81,7 @@ loginForm.addEventListener('submit', (event) => {
 
   loginMessage.textContent = 'Login successful.';
   loginSection.classList.add('hidden');
+  loginSection.setAttribute('aria-hidden', 'true');
   appSection.classList.remove('hidden');
   appSection.setAttribute('aria-hidden', 'false');
   welcomeMessage.textContent = `Logged in as ${name} (${email})`;
