@@ -45,21 +45,13 @@ jobs:
   deploy:
     if: >-
       ${{
-        secrets.AWS_ACCESS_KEY_ID != null &&
         secrets.AWS_ACCESS_KEY_ID != '' &&
-        secrets.AWS_SECRET_ACCESS_KEY != null &&
         secrets.AWS_SECRET_ACCESS_KEY != '' &&
-        vars.AWS_REGION != null &&
         vars.AWS_REGION != '' &&
-        vars.ECR_REPOSITORY != null &&
         vars.ECR_REPOSITORY != '' &&
-        vars.ECS_SERVICE != null &&
         vars.ECS_SERVICE != '' &&
-        vars.ECS_CLUSTER != null &&
         vars.ECS_CLUSTER != '' &&
-        vars.ECS_TASK_DEFINITION != null &&
         vars.ECS_TASK_DEFINITION != '' &&
-        vars.CONTAINER_NAME != null &&
         vars.CONTAINER_NAME != ''
       }}
     name: Deploy
