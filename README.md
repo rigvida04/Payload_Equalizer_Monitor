@@ -5,6 +5,8 @@ Simple browser app for payload equalizer monitoring with:
 - Unlimited query and code submissions
 - Query-driven data flow diagram refresh status generation
 
+This repository is a static demo UI with client-side validation only. It is not a production authentication implementation.
+
 ## Run locally
 
 ```bash

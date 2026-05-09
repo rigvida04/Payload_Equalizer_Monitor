@@ -3,6 +3,7 @@ const appSection = document.getElementById('app-section');
 const loginForm = document.getElementById('login-form');
 const loginMessage = document.getElementById('login-message');
 const welcomeMessage = document.getElementById('welcome-message');
+const emailInput = document.getElementById('email');
 
 const queryForm = document.getElementById('query-form');
 const codeForm = document.getElementById('code-form');
@@ -64,18 +65,16 @@ loginForm.addEventListener('submit', (event) => {
   const name = String(formData.get('name') || '').trim();
   const email = String(formData.get('email') || '').trim();
   const password = String(formData.get('password') || '').trim();
-  const hasValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
   if (!name || !email || !password) {
     loginMessage.textContent = 'Please provide name, email, and password.';
     return;
   }
-  if (!hasValidEmail) {
+  if (!emailInput.validity.valid) {
     loginMessage.textContent = 'Please provide a valid email address.';
     return;
   }
   if (password.length < 6) {
-    loginMessage.textContent = 'Password must be at least 6 characters.';
+    loginMessage.textContent = 'Demo password must be at least 6 characters.';
     return;
   }
 
