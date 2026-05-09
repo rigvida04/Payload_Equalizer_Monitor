@@ -56,7 +56,7 @@ const refreshDiagram = () => {
 
   analysisNode.textContent = `${queryWords} words, ${codeLines} lines`;
   statusNode.textContent = 'generated';
-  refreshStatus.textContent = `Refresh generated at ${timestamp} for query "${query || '(none)'}" with ${codeLines} code line(s).`;
+  refreshStatus.textContent = `Diagram updated at ${timestamp} for query "${query || '(none)'}" with ${codeLines} code line(s).`;
 };
 
 loginForm.addEventListener('submit', (event) => {
