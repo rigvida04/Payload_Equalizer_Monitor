@@ -18,8 +18,8 @@ jobs:
       - name: Check for required files
         run: |
           echo "Validating repository structure..."
-          test -f README.md && echo "✓ README.md found" || echo "✗ README.md missing"
-          test -f LICENSE && echo "✓ LICENSE found" || echo "✗ LICENSE missing"
+          test -f README.md && echo "✓ README.md found" || { echo "✗ README.md missing"; exit 1; }
+          test -f LICENSE && echo "✓ LICENSE found" || { echo "✗ LICENSE missing"; exit 1; }
           echo "Validation complete."
 
       - name: List repository contents
