@@ -35,13 +35,15 @@
 
         <form id="query-form" class="stack">
           <label for="query-input">Query</label>
-          <textarea id="query-input" name="query" rows="3" placeholder="Enter query"></textarea>
+          <p id="query-help" class="hint">Describe the payload behavior or monitoring request you want to review.</p>
+          <textarea id="query-input" name="query" rows="3" placeholder="Enter query" aria-describedby="query-help"></textarea>
           <button type="submit">Submit Query</button>
         </form>
 
         <form id="code-form" class="stack">
           <label for="code-input">Code</label>
-          <textarea id="code-input" name="code" rows="8" placeholder="Enter code"></textarea>
+          <p id="code-help" class="hint">Paste the related code snippet so the dashboard can summarize the current input.</p>
+          <textarea id="code-input" name="code" rows="8" placeholder="Enter code" aria-describedby="code-help"></textarea>
           <button type="submit">Submit Code</button>
         </form>
 

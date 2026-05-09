@@ -21,7 +21,7 @@ const state = {
   lastQuery: '',
   lastCode: ''
 };
-const MAX_DIAGRAM_NODE_PREVIEW_CHARS = 26;
+const MAX_DIAGRAM_NODE_CHARS = 26;
 
 const crop = (value, length) => {
   if (!value) {
@@ -41,8 +41,8 @@ const refreshDiagram = () => {
   const code = state.lastCode.trim();
   const timestamp = new Date().toLocaleString();
 
-  queryNode.textContent = crop(query, MAX_DIAGRAM_NODE_PREVIEW_CHARS);
-  codeNode.textContent = crop(code, MAX_DIAGRAM_NODE_PREVIEW_CHARS);
+  queryNode.textContent = crop(query, MAX_DIAGRAM_NODE_CHARS);
+  codeNode.textContent = crop(code, MAX_DIAGRAM_NODE_CHARS);
 
   if (!query && !code) {
     analysisNode.textContent = 'idle';
